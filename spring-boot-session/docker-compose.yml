@@ -4,14 +4,6 @@ services:
     image: redis:latest
     ports:
       - '6379:6379'
-  redis-commander:
-    image: rediscommander/redis-commander:latest
-    ports:
-      - '8081:8081'
-    environment:
-      - REDIS_HOST=redis
-
-
 
 # 1:) docker-compose up -d
 # 2:) http://localhost:8080 > login > go to http://localhost:8080/
@@ -19,7 +11,10 @@ services:
 # 4:) 127.0.0.1:6379> keys *
 # 5:) you will see the following output ::
 # 6) "spring:session:sessions:72ff359a-6fc4-4b54-85bc-e20c696be7af"
-# 7:) and if you stop the application and then again start it , and try to access http://localhost:8080/
-# it will not ask you for the credentials again this is because of the session .
+# 7:) now stop the application and re-start the application again and try to access http://localhost:8080/ it will not ask for credentials
+# as session is preserved in the redis as a session .
+# and if you first stop redis and then re-start redis again and also after redis, re-start spring-boot-application and try to access http://localhost:8080/
+# then it(application) will ask you for the credentials as session will be removed from the session .
+
 
 

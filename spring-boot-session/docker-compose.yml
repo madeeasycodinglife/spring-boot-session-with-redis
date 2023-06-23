@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    ports:
+      - '8081:8081'
+    environment:
+      - REDIS_HOST=redis
+
+
+
+# 1:) docker-compose up -d
+# 2:) http://localhost:8080 > login > go to http://localhost:8080/
+# 3:) docker-compose exec redis redis-cli
+# 4:) 127.0.0.1:6379> keys *
+# 5:) you will see the following output ::
+# 6) "spring:session:sessions:72ff359a-6fc4-4b54-85bc-e20c696be7af"
+# 7:) and if you stop the application and then again start it , and try to access http://localhost:8080/
+# it will not ask you for the credentials again this is because of the session .
+
+

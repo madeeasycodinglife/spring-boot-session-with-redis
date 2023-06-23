@@ -14,7 +14,7 @@ services:
 # 7:) now stop the application and re-start the application again and try to access http://localhost:8080/ it will not ask for credentials
 # as session is preserved in the redis as a session .
 # and if you first stop redis and then re-start redis again and also after redis, re-start spring-boot-application and try to access http://localhost:8080/
-# then it(application) will ask you for the credentials as session will be removed from the session .
+# then it(application) will ask you for the credentials as session will be removed from the redis .
 
 
 
